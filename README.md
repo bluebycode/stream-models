@@ -4,15 +4,22 @@
 
 ```
 	.
-	├── cluster.js    <- contains master/workers definition belongs to cluster, each node listen per port 7001.
-	|									1. Send data from streaming channel opened from main process (fd:3)
-	|									2. Send to available cluster node by socket streaming by 7001
-	|									3. Node does hard work over streaming data incoming from socket (originally from fd:3 )
-	|								and return it back to socket.
+	├── cluster.js    <- Contains clustering approach. Each node spawn would be listening on local port.
+	|									1. Send data from a defined streaming channel opened when spawn child (fd:3).
+	|									2. Send streaming data to one of listening cluster node (RR) from any of socket clients.
+	|									3. Each cluster node bind the streaming flow through defined stream module. (i.e unit.js).
+	|									4. Node does hard work over streaming data on a instance of stream module defined for the worker.
 	|
-	├── model.js      <- model (main process), send streaming data to spawn cluster from inbounds to
-  |
-  |
+	|
+	├── model.js      <- Model (main process), send streaming data to spawn cluster nodes with a defined stream module.
+	|
+	|									// Model with streaming defined on 'unit.js'
+	|									// multiplex streaming into 52 clients over 8 nodes cluster.
+	|									var model = require('./mode.js');
+	|									model(process.stdin, process.stdout, 'unit', {
+	|									  clients: 52
+	|									});
+	|
 	|
 	└── launcher.js   <- launch a sample model:
 											- using readable/writable stream module: 'unit.js'.
