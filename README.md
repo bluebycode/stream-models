@@ -26,6 +26,8 @@
 								- 52 clients over 8 nodes (cpus cores).
 							1. Send random data through system
 							2. It is showing up when data are giving back from outbounds binded to output.
+
+![](https://raw.githubusercontent.com/vrandkode/stream-models/master/doc/5/streaming_figure1.jpg)
 ```
 
 Using launcher example:
