@@ -1,0 +1,25 @@
+{
+  "name": "5-streaming-cluster-nodes",
+  "version": "0.0.0",
+  "description": "streaming throught into cluster nodes",
+  "main": "model.js",
+  "scripts": {
+    "test": "node model.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/vrandkode/stream-models"
+  },
+  "keywords": [
+    "streaming",
+    "pipe",
+    "cluster",
+    "node"
+  ],
+  "author": "vrandkode",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/vrandkode/stream-models/issues"
+  },
+  "homepage": "https://github.com/vrandkode/stream-models"
+}
